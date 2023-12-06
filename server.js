@@ -20,6 +20,7 @@ db.sequelize.sync({force: true}).then(() => {
   });
 
 require("./routes/tutorial.routes.js")(app);
+require("./routes/test.routes.js")(app);
 
 app.get("/", (req, res) => {
   res.json({ welcome: "Root of AigrieTeam website" });
