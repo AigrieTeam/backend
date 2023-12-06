@@ -10,6 +10,9 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.VARCHAR,
     },
     age : {
+      type: Sequelize.INTEGER,
+    },
+    date : {
       type: Sequelize.DATE,
     },
   });
