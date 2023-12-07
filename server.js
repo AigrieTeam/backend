@@ -18,6 +18,9 @@ db.sequelize.authenticate().then(() => {
   console.error('Unable to connect to the database: ', error);
 });
 
+
+require("./routes/stories.routes.js")(app);
+require("./routes/scenarios.routes.js")(app);
 require("./routes/choices.routes.js")(app);
 require("./routes/informations.routes.js")(app);
 
