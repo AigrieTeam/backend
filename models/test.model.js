@@ -1,21 +1,28 @@
 module.exports = (sequelize, Sequelize) => {
-  const Test = sequelize.define("test", {
-    id: {
-      type: Sequelize.INTEGER,
+  const Test = sequelize.define(
+    "User",
+    {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+      },
+      nom: {
+        type: Sequelize.STRING,
+      },
+      prenom: {
+        type: Sequelize.STRING,
+      },
+      age: {
+        type: Sequelize.INTEGER,
+      },
+      date: {
+        type: Sequelize.DATE,
+      },
     },
-    nom: {
-      type: Sequelize.VARCHAR,
+    {
+      timestamps: false,
     },
-    prenom: {
-      type: Sequelize.VARCHAR,
-    },
-    age : {
-      type: Sequelize.INTEGER,
-    },
-    date : {
-      type: Sequelize.DATE,
-    },
-  });
+  );
 
   return Test;
 };

@@ -20,7 +20,6 @@ db.sequelize = sequelize;
 
 //AJOUTER LES MODELS
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.tests = require("./test.model.js")(sequelize, Sequelize);
 
 module.exports = db;

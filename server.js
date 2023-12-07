@@ -11,15 +11,13 @@ app.use(
 );
 
 const db = require("./models");
-db.sequelize.sync({force: true}).then(() => {
-    console.log("Synced db.");
-  })
-  .catch((err) => {
-    console.log("Failed to sync db: " + err);
-    process.exit();
-  });
 
-require("./routes/tutorial.routes.js")(app);
+db.sequelize.authenticate().then(() => {
+  console.log('Connection has been established successfully.');
+}).catch((error) => {
+  console.error('Unable to connect to the database: ', error);
+});
+
 require("./routes/test.routes.js")(app);
 
 app.get("/", (req, res) => {
