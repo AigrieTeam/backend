@@ -12,7 +12,7 @@ cd backend
 npm install
 ```
 
-### Lancement du serveur
+### Lancement du serveur en développement
 
 - Copier le fichier `.env.example` en `.env` et remplir les variables d'environnement
 - Lancer le serveur
@@ -25,4 +25,31 @@ npm start
 
 ```bash
 npm run format
+```
+
+### Commande pour le serveur de prod 
+
+#### Pour enregistrer le backend : 
+```bash
+pm2 start -n Backend server.js
+```
+
+#### Pour stoper le backend : 
+```bash
+pm2 stop Backend
+```
+
+#### Pour lancer le backend : 
+```bash
+pm2 start Backend
+```
+
+#### Pour voir les logs :
+```bash
+pm2 logs Backend
+```
+
+#### Pour monit le backend : 
+```bash
+pm2 monit 
 ```
