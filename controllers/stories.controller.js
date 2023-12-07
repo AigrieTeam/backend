@@ -2,32 +2,33 @@ const db = require("../models");
 const Stories = db.stories;
 
 exports.findAll = (req, res) => {
-
   Stories.findAll()
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving story.",
+        message: err.message || "Some error occurred while retrieving story.",
       });
     });
 };
 
-
 exports.findOne = (req, res) => {
+  const id = req.params.id;
 
-    const id = req.params.id;
-
-    Stories.findOne(id)
+  Stories.findByPk(id)
     .then((data) => {
-      res.send(data);
+      if (data == null) {
+        res.status(404).send({
+          message: "Not found Storie with id " + id,
+        });
+      } else {
+        res.send(data);
+      }
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Error while retrieving story "+ id,
+        message: "Error retrieving Storie with id=" + id,
       });
     });
-}
+};

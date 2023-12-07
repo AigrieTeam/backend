@@ -1,20 +1,19 @@
 module.exports = (sequelize, Sequelize) => {
-    const Stories = sequelize.define(
-      "Storie",
-      {
-        id: {
-          type: Sequelize.INTEGER,
-          primaryKey: true,
-        },
-        name: {
-          type: Sequelize.STRING,
-        },
+  const Stories = sequelize.define(
+    "stories",
+    {
+      Id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
       },
-      {
-        timestamps: false,
+      Name: {
+        type: Sequelize.STRING,
       },
-    );
-  
-    return Stories;
-  };
-  
+    },
+    {
+      timestamps: false,
+    },
+  );
+
+  return Stories;
+};

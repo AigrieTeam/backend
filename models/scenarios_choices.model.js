@@ -1,22 +1,24 @@
 module.exports = (sequelize, Sequelize) => {
-  const Informations = sequelize.define(
-    "informations",
+  const ScenariosChoices = sequelize.define(
+    "scenarios_choices",
     {
       Id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
       },
-      IdChoice: {
+      Scenarios_id: {
         type: Sequelize.INTEGER,
-        primaryKey: true,
+        references: {
+          model: "Scenarios",
+          key: "Id",
+        },
+      },
+      Choices_id: {
+        type: Sequelize.INTEGER,
         references: {
           model: "Choices",
           key: "Id",
         },
-      },
-      Text: {
-        type: Sequelize.STRING,
-        allowNull: false,
       },
     },
     {
@@ -24,5 +26,5 @@ module.exports = (sequelize, Sequelize) => {
     },
   );
 
-  return Informations;
+  return ScenariosChoices;
 };

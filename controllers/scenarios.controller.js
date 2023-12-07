@@ -2,32 +2,34 @@ const db = require("../models");
 const Scenarios = db.scenarios;
 
 exports.findAll = (req, res) => {
-
-  Stories.findAll()
+  Scenarios.findAll()
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Scenarios.",
+          err.message || "Some error occurred while retrieving scenarios.",
       });
     });
 };
 
-
 exports.findOne = (req, res) => {
+  const id = req.params.id;
 
-    const id = req.params.id;
-
-    Stories.findOne(id)
+  Scenarios.findByPk(id)
     .then((data) => {
-      res.send(data);
+      if (data == null) {
+        res.status(404).send({
+          message: "Not found Scenario with id " + id,
+        });
+      } else {
+        res.send(data);
+      }
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Error while retrieving scenario "+ id,
+        message: "Error retrieving Scenario with id=" + id,
       });
     });
-}
+};
