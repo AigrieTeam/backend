@@ -19,6 +19,8 @@ db.sequelize.authenticate().then(() => {
 });
 
 require("./routes/test.routes.js")(app);
+require("./routes/stories.routes.js")(app);
+require("./routes/scenarios.routes.js")(app);
 
 app.get("/", (req, res) => {
   res.json({ welcome: "Root of AigrieTeam website" });

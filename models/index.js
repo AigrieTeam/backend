@@ -21,5 +21,7 @@ db.sequelize = sequelize;
 //AJOUTER LES MODELS
 
 db.tests = require("./test.model.js")(sequelize, Sequelize);
+db.stories = require('./stories.model.js')(sequelize, Sequelize);
+db.scenarios = require('./scenarios.model.js')(sequelize, Sequelize);
 
 module.exports = db;
