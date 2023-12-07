@@ -12,13 +12,20 @@ app.use(
 
 const db = require("./models");
 
-db.sequelize.authenticate().then(() => {
-  console.log('Connection has been established successfully.');
-}).catch((error) => {
-  console.error('Unable to connect to the database: ', error);
-});
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((error) => {
+    console.error("Unable to connect to the database: ", error);
+  });
 
-require("./routes/test.routes.js")(app);
+require("./routes/stories.routes.js")(app);
+require("./routes/scenarios.routes.js")(app);
+require("./routes/choices.routes.js")(app);
+require("./routes/informations.routes.js")(app);
+require("./routes/scenarios_choices.routes.js")(app);
 
 app.get("/", (req, res) => {
   res.json({ welcome: "Root of AigrieTeam website" });
