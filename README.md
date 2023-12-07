@@ -31,7 +31,7 @@ npm run format
 
 #### Pour enregistrer le backend : 
 ```bash
-pm2 start -n Backend server.js
+pm2 start -n Backend --time /root/backend/server.js
 ```
 
 #### Pour stoper le backend : 
