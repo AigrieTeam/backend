@@ -10,6 +10,22 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      Money: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      Pollution: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      Time: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      Health: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       Next: {
         type: Sequelize.INTEGER,
         references: {
